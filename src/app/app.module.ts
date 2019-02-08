@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+registerLocaleData(en);
 
 // Angular Material Components
 import {MatCheckboxModule} from '@angular/material';
@@ -41,16 +42,26 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { ListTutosComponent } from './components/list-tutos/list-tutos.component';
 
-registerLocaleData(en);
+// Angular Components & Containers
+import { TutosListComponent } from './containers/tutos-list/tutos-list.component';
+
+import {reducer} from './reducers/tuto.reducer';
+import {StoreModule} from '@ngrx/store';
+import { AddTutoComponent } from './containers/add-tuto/add-tuto.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListTutosComponent
+    TutosListComponent,
+    AddTutoComponent
   ],
   imports: [
+    StoreModule.forRoot({
+      tuto_reducer: reducer
+    }),
+
     BrowserModule,
     AppRoutingModule,
     NgZorroAntdModule,
