@@ -1,0 +1,14 @@
+<div class="container-fluid" >
+  <mat-card class="row" style="margin: 20px 0 20px 0;">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="right" *ngIf="tutorials">
+        <h3>Tutorials</h3>
+        <ul>
+          <li *ngFor="let tutorial of tutorials | async; let i = index"  (click)="delTutorial(i)" >
+            <a >{{ tutorial.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </mat-card>
+</div>
