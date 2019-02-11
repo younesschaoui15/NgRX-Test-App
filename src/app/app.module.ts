@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -46,9 +45,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 // Angular Components & Containers
 import { TutosListComponent } from './containers/tutos-list/tutos-list.component';
 
-import {reducer} from './reducers/tuto.reducer';
+import {TutoReducer} from './reducers/tuto.reducer';
 import {StoreModule} from '@ngrx/store';
 import { AddTutoComponent } from './containers/add-tuto/add-tuto.component';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -59,15 +60,19 @@ import { AddTutoComponent } from './containers/add-tuto/add-tuto.component';
   ],
   imports: [
     StoreModule.forRoot({
-      tuto_reducer: reducer
+      tuto_reducer: TutoReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      name: 'NgRX Tests App',
+      maxAge: 15
     }),
 
     BrowserModule,
     AppRoutingModule,
     NgZorroAntdModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
 
     MatCheckboxModule,
     MatButtonModule,

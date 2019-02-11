@@ -5,7 +5,7 @@ export enum TutoActionTypes {
   AddTuto = '[Tuto] ajouter tuto',
   DeleteTuto = '[Tuto] supprimer tuto',
   LoadTutos = '[Tuto] charger tutos',
-  LoadOneTuto = '[Tuto] charger un tuto'
+  LoadOneTuto = '[Tuto] charger un seul tuto'
 }
 
 export type TutoActions = AddTuto | DeleteTuto | LoadTutos | LoadOneTuto;

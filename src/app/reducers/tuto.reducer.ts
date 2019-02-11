@@ -11,7 +11,7 @@ export const initialState: Tuto[] = [
   {name: 'tuto 3', url: 'http://www.udemy.com/tuot3'}
 ];
 
-export function reducer(state: Tuto[] = initialState, action: TutoActions) {
+export function TutoReducer(state: Tuto[] = initialState, action: TutoActions) {
 
   switch (action.type) {
     case TutoActionTypes.AddTuto:
