@@ -1,4 +1,4 @@
-import {Tuto} from './models/tuto';
+import {Tuto} from './tuto';
 
 export interface AppState {
   readonly tutorials_DB: Tuto[];

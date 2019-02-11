@@ -24,6 +24,9 @@ export function reducer(state: Tuto[] = initialState, action: TutoActions) {
     case TutoActionTypes.LoadTutos:
       return [...state, action.payload];
 
+    // case TutoActionTypes.LoadOneTuto:
+    //   return state.fin();
+
     default:
       return state;
   }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {Tuto} from '../../models/tuto';
 import {Observable} from 'rxjs';
-import {AppState} from '../../app-state';
-import {DeleteTuto} from '../../actions/tuto.actions';
+import {AppState} from '../../models/app-state';
+import {DeleteTuto, LoadOneTuto} from '../../actions/tuto.actions';
 
 @Component({
   selector: 'app-tutos-list',
@@ -15,10 +15,12 @@ export class TutosListComponent implements OnInit {
   tutorials: Observable<Tuto[]>;
 
   constructor(private store: Store<AppState>) {
-    this.tutorials = store.select('tuto_reducer');
   }
 
   ngOnInit() {
+    this.tutorials = this.store.select('tuto_reducer');
+    // @ts-ignore
+    this.tutorials = this.store.select( new LoadOneTuto(3));
   }
 
   delTutorial(index) {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {AppState} from '../../app-state';
+import {AppState} from '../../models/app-state';
 import {AddTuto, TutoActions} from '../../actions/tuto.actions';
 
 @Component({

@@ -4,8 +4,8 @@
       <div class="right" *ngIf="tutorials">
         <h3>Tutorials</h3>
         <ul>
-          <li *ngFor="let tutorial of tutorials | async; let i = index"  (click)="delTutorial(i)" >
-            <a >{{ tutorial.name }}</a>
+          <li *ngFor="let tutorial of tutorials | async; let i = index" >
+            <span >{{ tutorial.name }}</span> <a style="margin-left: 20px" (click)="delTutorial(i)">x</a>
           </li>
         </ul>
       </div>
